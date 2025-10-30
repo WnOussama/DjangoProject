@@ -20,7 +20,7 @@ LOGIN_URL = "/auth/login/"
 
 
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key-12345')
+SECRET_KEY = os.getenv('SECRET_KEY', 'test-secret-key-12345')
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'djangoproject-g2cj.onrender.com,.onrender.com,127.0.0.1,localhost').split(',')
 
 INSTALLED_APPS = [
@@ -28,8 +28,6 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'storages',
     'daphne',
-    'gunicorn',
-    'gunicorn',
     'channels',
     'django_htmx',
     'social_django',
@@ -117,6 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
