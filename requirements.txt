@@ -23,7 +23,7 @@ cryptography==43.0.0
 daphne==4.1.2
 defusedxml==0.7.1
 dj-database-url==3.0.0
-Django<4.3,>=4.2.16
+Django>=4.2.16,<4.3
 django-allauth==65.9.0
 django-htmx==1.18.0
 django-storages==1.14.6
@@ -34,7 +34,7 @@ incremental==24.7.2
 jmespath==1.0.1
 kombu==5.5.4
 logfury==1.0.1
-# mysqlclient==2.2.4
+mysqlclient==2.2.4
 oauthlib==3.2.2
 packaging==25.0
 pillow==10.3.0

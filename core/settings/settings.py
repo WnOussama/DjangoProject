@@ -20,14 +20,15 @@ LOGIN_URL = "/auth/login/"
 
 
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'test-secret-key-12345')
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key-12345')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'djangoproject-g2cj.onrender.com,.onrender.com,127.0.0.1,localhost').split(',')
 
 INSTALLED_APPS = [
     # ------- Created and 3rd party apps ---------
     'whitenoise.runserver_nostatic',
     'storages',
     'daphne',
+    'gunicorn',
     'gunicorn',
     'channels',
     'django_htmx',
@@ -116,8 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-LANGUAGE_CODE = 'fr-fr'
-TIME_ZONE = 'Europe/Paris'
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -142,6 +143,8 @@ CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',')
 CSRF_TRUSTED_ORIGINS = [
     "https://djangoproject-g2cj.onrender.com",
     "http://djangoproject-g2cj.onrender.com",
+    "https://djangoproject-g2cj.onrender.com",
+    "http://djangoproject-g2cj.onrender.com",
     "http://44.226.145.213",
     "http://54.187.200.255",
     "http://34.213.214.55",
@@ -158,6 +161,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
+    "https://djangoproject-g2cj.onrender.com",
+    "http://djangoproject-g2cj.onrender.com",
     "https://djangoproject-g2cj.onrender.com",
     "http://djangoproject-g2cj.onrender.com",
     "https://*.koyeb.app",
