@@ -1,0 +1,87 @@
+{% load static %}
+<title>404</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:#fff;
+}
+
+.hero{
+  position:relative;
+  width:100%;
+  max-width:900px;
+  height:400px;
+  background:url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif)
+            center/contain no-repeat;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:0 1rem;
+}
+
+.error-code{
+  margin:0 0 .3rem;
+  margin-top:2rem;
+  font-size:5rem;
+  font-weight:900;
+  background:linear-gradient(135deg,#4361ee,#3a0ca3,#7209b7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:pulse 2.5s infinite;
+  margin-bottom:6rem;
+}
+h3{
+    margin-top:5.1rem;
+  font-size:1.8rem;
+  font-weight:700;
+  color:#000;
+}
+
+.message{
+  max-width:40rem;
+  font-size:1.25rem;
+  line-height:1.55;
+  color:#2b2d42;
+}
+
+.home-link{
+  color:#7209b7;
+  font-weight:600;
+  text-decoration:none;
+  border-bottom:2px dashed rgba(114,9,183,.4);
+  transition:.25s;
+}
+.home-link:hover{border-bottom-color:rgba(114,9,183,.8)}
+
+.emoji{
+  font-size:1.5rem;
+  display:inline-block;
+  margin:0 .2rem;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.8}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+</style>
+
+<div class="hero">
+  <h2 class="error-code">404</h2>
+  <h3>Page Not Found</h3>
+
+  <p class="message">
+    Don't panic! The page you are looking for is lost in space.<br>
+    <span class="emoji">🕵️‍♂️</span><span class="emoji">🚀</span><br>
+    Hit the escape pod and warp back to the
+    <a href="/" class="home-link">Homepage</a>.
+  </p>
+</div>

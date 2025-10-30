@@ -1,0 +1,82 @@
+{% load static %}
+{% block css %}
+  <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+  <style>
+    @keyframes bell-shake {
+      0%   { transform: rotate(0deg); }
+      25%  { transform: rotate(-15deg); }
+      75%  { transform: rotate(15deg); }
+      100% { transform: rotate(0deg); }
+    }
+    .bell-shake {
+      animation: bell-shake 0.5s ease-in-out;
+    }
+    .red-dot-custom {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      background-color: red;
+      color: white;
+      font-size: 10px;
+      line-height: 16px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    }
+    /* hide dot when no text */
+    .red-dot-custom:empty {
+      display: none;
+    }
+  </style>
+{% endblock css %}
+
+<li class="nav-item dropdown ms-2">
+  <a class="nav-link bg-light icon-md btn btn-light p-0"
+     href="#"
+     id="notifDropdown"
+     data-bs-toggle="dropdown"
+     aria-expanded="false"
+     data-bs-auto-close="outside">
+
+    <!-- this is your red dot count -->
+    <span id="notification-dot" class="red-dot-custom">
+      {{ user.profile.unseen_notifications_count }}
+    </span>
+
+    <!-- and your bell icon -->
+    <i id="notification-bell"
+       class="bi bi-bell-fill fs-6">
+    </i>
+  </a>
+
+  <div class="dropdown-menu dropdown-animation dropdown-menu-end
+              dropdown-menu-size-md p-0 shadow-lg border-0"
+       aria-labelledby="notifDropdown">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h6 class="m-0">
+          Notifications
+          <span id="notification-count"
+                class="badge bg-danger bg-opacity-10 text-danger ms-2">
+            {{ user.profile.unseen_notifications_count }} new
+          </span>
+        </h6>
+        <a class="small" href="{% url "notification_list" %}">Mark all as read</a>
+      </div>
+      <div class="card-body p-0">
+        <ul id="notification-list"
+            class="list-group list-group-flush list-unstyled p-2">
+          {% include "home/partials/notify.html" %}
+        </ul>
+      </div>
+      <div class="card-footer text-center">
+        <a href="{% url "notification_list" %}" class="btn btn-sm btn-primary-soft">
+          See all incoming activity
+        </a>
+      </div>
+    </div>
+  </div>
+</li>

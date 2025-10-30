@@ -1,0 +1,113 @@
+
+{% load static %}
+<!-- Main content START -->
+<div class="col-lg-8 vstack gap-4">
+
+    <!-- Setting Tab content START -->
+    <div class="tab-content py-0 mb-0" id="tab-option-to-change">
+
+
+        <!-- Conversation item START -->
+        
+        <div class="card card-custom">
+            <div class="card-body">
+            <!-- Top avatar and status START -->
+            <div class="d-sm-flex justify-content-between align-items-center">
+                <div class="d-flex mb-2 mb-sm-0">
+                <div class="flex-shrink-0 avatar me-2">
+                    <ul class="avatar-group avatar-group-two">
+                    {% for imgs in grp_messages|slice:":2" %}
+                    <li class="avatar avatar-xs">
+                        <img class="avatar-img rounded-circle" src="{{imgs.author.profile.profile_picture.url}}" alt="avatar">
+                    </li>
+                    {% endfor %}
+
+                    </ul>
+                </div>
+                <div class="flex-grow-1 d-block">
+                    <h6 class="mb-0 mt-1">Friend Room</h6>
+                </div>
+                </div>
+                <div class="d-flex align-items-center">
+                <!-- Call button -->
+                <a href="#!" class="icon-md rounded-circle btn btn-primary-soft me-2 px-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Audio call"><i class="bi bi-telephone-fill"></i></a>
+                <a href="#!" class="icon-md rounded-circle btn btn-primary-soft me-2 px-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Video call"><i class="bi bi-camera-video-fill"></i></a>
+                <!-- Card action START -->
+                
+                <!-- Card action END -->
+                </div>
+            </div>
+            <!-- Top avatar and status END -->
+            <hr>
+
+
+            
+            <div class="chatting ">
+
+                <!-- Chat conversation START -->
+                <div id="chat-conversation-content" class="chat-messages">
+                {% for msg in grp_messages %}
+
+                {% if msg.author == user %}
+                <!-- Chat message right -->
+                <div class="d-flex justify-content-end text-end mb-1">
+                    <div class="w-100">
+                    <div class="d-flex flex-column align-items-end">
+                        <div class="bg-primary text-white p-2 px-3 rounded-2">
+                        {{msg.body}}
+                        </div>
+                        <div class="d-flex my-2">
+                        <div class="small text-secondary">{{msg.created_at}}</div>
+                        <div class="small ms-2"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Chat time 
+                    <div class="text-center small my-2">2 New Messages</div>
+                -->
+                {% else %}
+                <!-- Chat message left -->
+                <div class="d-flex mb-1">
+                    <div class="flex-shrink-0 avatar avatar-xs me-2">
+                    <img class="avatar-img rounded-circle" src="{{msg.author.profile.profile_picture.url}}" alt="">
+                    </div>
+                    <div class="flex-grow-1">
+                    <div class="w-100">
+                        <div class="d-flex flex-column align-items-start">
+                        <div class="bg-light text-secondary p-2 px-3 rounded-2">
+                            {{msg.body}}</div>
+                        <div class="small my-2">{{msg.created_at}}</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% endfor %}
+                </div>
+                <!-- Chat conversation END -->
+        
+            </div>
+
+            </div>
+            <div class="card-footer">
+            <form class="d-sm-flex align-items-end" method="POST" novalidate>
+                
+                {% csrf_token %}
+                {{form.body}}
+                
+                <button class="btn btn-sm btn-danger-soft ms-sm-2"><i class="fa-solid fa-face-smile fs-6"></i></button>
+                <button class="btn btn-sm btn-secondary-soft ms-2"><i class="fa-solid fa-paperclip fs-6"></i></button>
+                <button type="submit" class="btn btn-sm btn-primary ms-2"><i class="fa-solid fa-paper-plane fs-6"></i></button>
+                
+            </form>
+            </div>
+        </div>                      
+        
+        <!-- Conversation item END -->
+
+
+    </div>          
+</div>

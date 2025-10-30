@@ -1,0 +1,37 @@
+<div class="modal fade" id="modalFeeling" tabindex="-1" aria-labelledby="modalFeelingLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalFeelingLabel">Feeling / Activity</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" class="btn btn-sm btn-outline-secondary feeling-btn" data-feeling="😊 feeling happy">😊 Happy</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary feeling-btn" data-feeling="😔 feeling sad">😔 Sad</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary feeling-btn" data-feeling="🔥 feeling excited">🔥 Excited</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary feeling-btn" data-feeling="💼 at work">💼 At work</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary feeling-btn" data-feeling="🏃 doing workout">🏃 Workout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('.feeling-btn');
+  if (!btn) return;
+  const txt = btn.getAttribute('data-feeling');
+  const ta = document.querySelector('textarea[name$="content"], textarea#chat-input, textarea');
+  if (ta) {
+    ta.value = (ta.value ? ta.value + '\n' : '') + txt;
+  }
+  const modalEl = document.getElementById('modalFeeling');
+  if (modalEl) {
+    const modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+  }
+});
+</script>
+

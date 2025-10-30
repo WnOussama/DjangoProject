@@ -1,0 +1,110 @@
+{% if likers %}
+  {% for like in likers %}
+  <div class="d-flex align-items-center p-3 border-bottom hover-bg-light position-relative">
+    <!-- Profile Picture -->
+    <div class="avatar me-3">
+      <a href="{% url 'view_profile' like.user.user.username %}">
+        <img class="avatar-img rounded-circle" 
+             src="{{ like.user.profile_picture.url }}" 
+             alt="{{ like.user.first_name }}"
+             style="width: 40px; height: 40px; object-fit: cover;">
+      </a>
+    </div>
+    
+    <!-- User Info -->
+    <div class="flex-grow-1">
+      <div class="d-flex align-items-center">
+        <a href="{% url 'view_profile' like.user.user.username %}" 
+           class="text-decoration-none">
+          <h6 class="mb-0 fw-semibold text-dark">
+            {{ like.user.first_name }} {{ like.user.last_name }}
+          </h6>
+        </a>
+        {% if like.user == request.user.profile %}
+          <span class="badge bg-primary ms-2 small">You</span>
+        {% endif %}
+      </div>
+      <p class="mb-0 small text-muted">{{ like.user.user.username }}</p>
+      {% if like.user.bio %}
+        <p class="mb-0 small text-muted text-truncate" style="max-width: 200px;">
+          {{ like.user.bio|truncatechars:50 }}
+        </p>
+      {% endif %}
+    </div>
+    
+    <!-- Action Button -->
+    <div class="ms-auto">
+      {% if like.user != request.user.profile %}
+        {% comment %} Check if already friends {% endcomment %}
+        {% if like.user in friends %}
+          <button class="btn btn-sm btn-outline-success" disabled>
+            <i class="bi bi-check-circle me-1"></i>Friends
+          </button>
+        {% else %}
+          {% comment %} Check if friend request already sent {% endcomment %}
+          {% if like.user in request_list %}
+            <button class="btn btn-sm btn-outline-secondary" disabled>
+              <i class="bi bi-clock me-1"></i>Pending
+            </button>
+          {% else %}
+            <form method="POST" action="{% url 'send_friend_request' %}" class="d-inline">
+              {% csrf_token %}
+              <input type="hidden" name="the_person" value="{{ like.user.user.username }}">
+              <button type="submit" class="btn btn-sm btn-primary">
+                <i class="bi bi-person-plus me-1"></i>Add Friend
+              </button>
+            </form>
+          {% endif %}
+        {% endif %}
+      {% else %}
+        <span class="text-muted small">
+          <i class="bi bi-heart-fill text-danger"></i>
+        </span>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+  <!-- Empty State -->
+  <div class="text-center py-5">
+    <div class="mb-3">
+      <i class="bi bi-heart display-4 text-muted"></i>
+    </div>
+    <h6 class="text-muted">No likes yet</h6>
+    <p class="text-muted small mb-0">Be the first to like this post!</p>
+  </div>
+{% endif %}
+
+<!-- Custom CSS for hover effects -->
+<style>
+.hover-bg-light:hover {
+  background-color: #f8f9fa !important;
+  transition: background-color 0.2s ease;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.avatar-img {
+  transition: transform 0.2s ease;
+}
+
+.avatar-img:hover {
+  transform: scale(1.05);
+}
+</style>

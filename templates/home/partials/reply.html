@@ -1,0 +1,37 @@
+{% load ipost %}
+
+{% if comment.replies %}
+<ul class="comment-item-nested list-unstyled">
+    {% for reply in comment.replies.all %}
+    <!-- Comment item START -->
+    <li class="comment-item">
+        <div class="d-flex">
+            <!-- Avatar -->
+            <div class="avatar avatar-xs">
+                <a href="#"><img class="avatar-img rounded-circle" src="{{reply.user.profile_picture.url}}" alt=""></a>
+            </div>
+            <!-- Comment by -->
+            <div class="ms-2">
+                <div class="bg-light p-3 rounded">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="mb-1"> <a href="#">{{reply.user.first_name|truncatechars:":5"}}</a> </h6>
+                        <small class="ms-2">{{reply.created_at|comment_time_fixer}}</small>
+                    </div>
+                    <p class="small mb-0">{{reply.content}}</p>
+                </div>
+                <!-- Comment react -->
+                <ul class="nav nav-divider py-2 small">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Like</a>
+                    </li>
+                    {% comment %} <li class="nav-item">
+                        <a class="nav-link" href="#"> Reply</a>
+                    </li> {% endcomment %}
+                </ul>
+            </div>
+        </div>
+    </li>
+    <!-- Comment item END -->
+    {% endfor %}
+</ul>
+{% endif %}

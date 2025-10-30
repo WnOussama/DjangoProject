@@ -1,0 +1,9 @@
+<div id="chat-messages">
+    {% if other_user %}
+      {% include "chat/partials/messages.html" %}
+    {% endif %}
+  </div>
+  <form id="chat-form">
+      <input type="text" id="message-input" name="message">
+      <button type="submit">Send</button>
+  </form>

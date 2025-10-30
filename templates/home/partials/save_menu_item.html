@@ -1,0 +1,16 @@
+{% if is_saved %}
+<a class="dropdown-item"
+   hx-post="{% url 'save_post' post.uid %}"
+   hx-target="#save-item-{{post.uid}}"
+   hx-swap="outerHTML">
+   <i class="bi bi-bookmark-check fa-fw pe-2"></i>Saved
+</a>
+{% else %}
+<a class="dropdown-item"
+   hx-post="{% url 'save_post' post.uid %}"
+   hx-target="#save-item-{{post.uid}}"
+   hx-swap="outerHTML">
+   <i class="bi bi-bookmark fa-fw pe-2"></i>Save post
+</a>
+{% endif %}
+

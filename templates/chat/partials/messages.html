@@ -1,0 +1,50 @@
+
+{% load static %}
+<!-- Main content START -->
+<div class="col-lg-8 vstack gap-4">
+    <div class="tab-content py-0 mb-0">
+        <div>
+            <h3>Chat with {{ receiver.username }}</h3>
+            <div id="chat-messages">
+              {% for message in messages %}
+              <div class="{% if message.sender == request.user %}sent{% else %}received{% endif %}">
+                <p>{{ message.content }}</p>
+                <small>{{ message.created_at|date:"H:i" }}</small>
+              </div>
+              {% endfor %}
+            </div>
+            <form id="chat-form">
+              <input type="text" id="message-input" placeholder="Type a message">
+              <button type="button" id="send-button">Send</button>
+            </form>
+          </div>
+          
+          <script>
+            const chatSocket = new WebSocket(
+              'ws://' + window.location.host + '/ws/chat/{{ receiver.uid }}/'
+            );
+          
+            chatSocket.onmessage = function(e) {
+              const data = JSON.parse(e.data);
+              const messageContainer = document.getElementById('chat-messages');
+              const newMessage = document.createElement('div');
+              newMessage.classList.add(data.sender_id == {{ request.user.uid }} ? 'sent' : 'received');
+              newMessage.innerHTML = `<p>${data.message}</p>`;
+              messageContainer.appendChild(newMessage);
+              messageContainer.scrollTop = messageContainer.scrollHeight;
+            };
+          
+            document.getElementById('send-button').onclick = function(e) {
+              const messageInput = document.getElementById('message-input');
+              const message = messageInput.value;
+          
+              chatSocket.send(JSON.stringify({
+                'content': message
+              }));
+          
+              messageInput.value = '';
+            };
+          </script>
+          
+    </div>          
+</div>

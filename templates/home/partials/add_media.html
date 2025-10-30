@@ -1,0 +1,27 @@
+<input class="form-control mb-2 mt-1" type="file" name="image_{{i}}" accept="{{ accept_type }}">
+<input type="hidden" name ="last_image" value="{{i}}">
+<div id="Media-{{i}}">
+
+    <ul class="nav nav-pills nav-stack small fw-normal">
+        <li class="nav-item">
+            <a 
+            hx-get="{% url 'add_post_media' i 'image' %}"
+            hx-target="#Media-{{i}}"
+            hx-swap="outerHTML"                
+            class="nav-link bg-light py-1 px-2 mb-0" 
+            href="#media" >
+            <i class="bi bi-plus text-success pe-2"></i>Add more image</a>
+        </li>
+        <li class="nav-item">
+            <a 
+            hx-get="{% url 'add_post_media' i 'video' %}"
+            hx-target="#Media-{{i}}"
+            hx-swap="outerHTML"                
+            class="nav-link bg-light py-1 px-2 mb-0" 
+            href="#media" >
+            <i class="bi bi-plus text-info pe-2"></i>Add more video</a>
+        </li>
+    </ul>
+
+</div>
+

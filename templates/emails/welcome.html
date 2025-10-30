@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome to Bloome - Let's Connect!</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@media (prefers-color-scheme: dark) {
+  .wrapper { background:#0a0a0b !important; }
+  .card { background:#111111 !important; color:#ffffff !important; }
+  .feature-card { background:#1a1a1a !important; border:1px solid #333 !important; }
+  .text-secondary { color:#a1a1aa !important; }
+  .social-link { background:#1f1f23 !important; border:1px solid #333 !important; }
+}
+
+@media screen and (max-width:98%){
+  .card { width:95%!important; margin:0 10px!important; }
+  .hero h1 { font-size:24px!important; line-height:30px!important; }
+  .hero p { font-size:14px!important; }
+  .features-grid { display:block!important; }
+  .feature-card { margin-bottom:12px!important; }
+  .social-links { justify-content:center!important; }
+  .logo { width:48px!important; height:48px!important; }
+}
+
+.button:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(109,93,252,0.4); }
+.feature-card:hover { transform:translateY(-2px); }
+.social-link:hover { transform:translateY(-2px); }
+
+* { transition:all 0.3s ease; }
+</style>
+</head>
+
+<body style="margin:0;padding:0;background:#f8fafc;font-family:'Inter',system-ui,-apple-system,sans-serif;">
+
+<!-- Pre-header text -->
+<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
+  🎉 Welcome to Bloome! Your journey to meaningful connections starts here.
+</div>
+
+<!-- Wrapper -->
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation"
+       style="background:#f8fafc;padding:20px;width:100%;">
+  <tr>
+    <td align="center">
+
+      <!-- Main Card -->
+      <table class="card" width="600" cellpadding="0" cellspacing="0" role="presentation"
+             style="width:600px;max-width:600px;background:#ffffff;border-radius:20px;
+                    box-shadow:0 8px 32px rgba(0,0,0,0.08);overflow:hidden;">
+
+        <!-- Hero Section with Integrated Logo -->
+        <tr>
+          <td class="hero" align="center"
+              style="background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+                     padding:32px 24px;position:relative;">
+            <div style="position:relative;z-index:1;">
+              <!-- Logo integrated into hero -->
+              {% comment %} 
+              <img src="https://private-user-images.githubusercontent.com/109217697/452261262-ad3c6d66-2129-45a9-b366-3062ab2a1129.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDkyMDU1OTEsIm5iZiI6MTc0OTIwNTI5MSwicGF0aCI6Ii8xMDkyMTc2OTcvNDUyMjYxMjYyLWFkM2M2ZDY2LTIxMjktNDVhOS1iMzY2LTMwNjJhYjJhMTEyOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYwNlQxMDIxMzFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lZjNhMzdiYmQ0MGI5ZmVkZTE5NDU5YTk0MWZhNDJjYzdiNDliNzY2NGMzYTg2ZTUzMzU0MzVmZWNmNjUzNDQzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.qMCUmA7UcwHnd6PgAX3jaFkhYZmYwnfjHQwAindMSl8" 
+                   class="logo" width="60" height="60" alt="Bloome"
+                   style="display:block;border:0;border-radius:15px;margin:0 auto 16px auto;
+                          box-shadow:0 4px 16px rgba(255,255,255,0.2);"
+                          >
+               {% endcomment %}
+              <h1 style="margin:0 0 8px 0;font-size:28px;line-height:34px;font-weight:700;
+                         color:#ffffff;text-shadow:0 2px 4px rgba(0,0,0,0.1);">
+                Welcome to Bloome, {{ user }}! 🌸
+              </h1>
+              <p style="margin:0;font-size:16px;line-height:24px;color:#ffffff;opacity:0.95;
+                        font-weight:400;">
+                Your journey to meaningful connections starts here
+              </p>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Welcome Message -->
+        <tr>
+          <td style="padding:24px 32px 20px 32px;">
+            <h2 style="margin:0 0 12px 0;font-size:22px;font-weight:600;color:#1f2937;">
+              You're all set! 🎉
+            </h2>
+            <p class="text-secondary" style="margin:0;font-size:16px;line-height:24px;color:#6b7280;">
+              Thanks for joining <strong style="color:#6d5dfc;">Bloome</strong> – where authentic conversations bloom into lasting friendships. 
+              We're excited to have you as part of our growing community!
+            </p>
+          </td>
+        </tr>
+
+        <!-- Features Grid -->
+        <tr>
+          <td style="padding:0 32px 24px 32px;">
+            <h3 style="margin:0 0 20px 0;font-size:18px;font-weight:600;color:#1f2937;text-align:center;">
+              What makes Bloome special?
+            </h3>
+            <table class="features-grid" width="100%" cellpadding="0" cellspacing="0" style="width:100%;">
+              <tr>
+                <td width="50%" style="padding-right:8px;vertical-align:top;">
+                  <div class="feature-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;height:100%;box-sizing:border-box;">
+                    <div style="width:40px;height:40px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                      <span style="font-size:20px;">💬</span>
+                    </div>
+                    <h4 style="margin:0 0 6px 0;font-size:15px;font-weight:600;color:#1f2937;">Real-time Chat</h4>
+                    <p style="margin:0;font-size:13px;line-height:18px;color:#6b7280;">Connect instantly with friends through our lightning-fast messaging.</p>
+                  </div>
+                </td>
+                <td width="50%" style="padding-left:8px;vertical-align:top;">
+                  <div class="feature-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;height:100%;box-sizing:border-box;">
+                    <div style="width:40px;height:40px;background:linear-gradient(135deg,#f093fb,#f5576c);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                      <span style="font-size:20px;">🔒</span>
+                    </div>
+                    <h4 style="margin:0 0 6px 0;font-size:15px;font-weight:600;color:#1f2937;">Privacy First</h4>
+                    <p style="margin:0;font-size:13px;line-height:18px;color:#6b7280;">Your conversations are secure with end-to-end encryption.</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            
+            <table class="features-grid" width="100%" cellpadding="0" cellspacing="0" style="width:100%;margin-top:12px;">
+              <tr>
+                <td width="50%" style="padding-right:8px;vertical-align:top;">
+                  <div class="feature-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;height:100%;box-sizing:border-box;">
+                    <div style="width:40px;height:40px;background:linear-gradient(135deg,#4facfe,#00f2fe);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                      <span style="font-size:20px;">👥</span>
+                    </div>
+                    <h4 style="margin:0 0 6px 0;font-size:15px;font-weight:600;color:#1f2937;">Smart Matching</h4>
+                    <p style="margin:0;font-size:13px;line-height:18px;color:#6b7280;">Discover like-minded people through intelligent suggestions.</p>
+                  </div>
+                </td>
+                <td width="50%" style="padding-left:8px;vertical-align:top;">
+                  <div class="feature-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:16px;height:100%;box-sizing:border-box;">
+                    <div style="width:40px;height:40px;background:linear-gradient(135deg,#fa709a,#fee140);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                      <span style="font-size:20px;">✨</span>
+                    </div>
+                    <h4 style="margin:0 0 6px 0;font-size:15px;font-weight:600;color:#1f2937;">Rich Experience</h4>
+                    <p style="margin:0;font-size:13px;line-height:18px;color:#6b7280;">Share photos, videos, and express yourself with custom themes.</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- CTA Button -->
+        <tr>
+          <td align="center" style="padding:0 32px 32px 32px;">
+            <a href="{{ login_url }}" class="button"
+               style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+                      color:#ffffff;text-decoration:none;border-radius:10px;
+                      padding:14px 28px;display:inline-block;font-weight:600;font-size:16px;
+                      box-shadow:0 6px 20px rgba(109,93,252,0.3);border:0;">
+              Start Your Journey →
+            </a>
+          </td>
+        </tr>
+
+        <!-- Developer Section -->
+        <tr>
+          <td style="padding:24px 32px;background:#f8fafc;border-top:1px solid #e5e7eb;">
+            <div style="text-align:center;">
+              <h4 style="margin:0 0 12px 0;font-size:15px;font-weight:600;color:#1f2937;">
+                Developer ©E. H. Ashiq
+              </h4>
+              <p class="text-secondary" style="margin:0 0 16px 0;font-size:13px;color:#6b7280;">
+                Full-stack developer passionate about creating meaningful digital experiences
+              </p>
+              
+              <!-- Social Links -->
+              <table class="social-links" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                <tr>
+                  <td style="padding:0 6px;">
+                    <a href="https://github.com/emhash" class="social-link"
+                       style="display:inline-block;background:#ffffff;border:1px solid #e5e7eb;
+                              border-radius:8px;padding:8px 12px;text-decoration:none;
+                              box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+                      <table cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="padding-right:6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#1f2937">
+                              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                          </td>
+                          <td>
+                            <span style="font-size:13px;font-weight:500;color:#1f2937;">GitHub</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </a>
+                  </td>
+                  <td style="padding:0 6px;">
+                    <a href="https://www.linkedin.com/in/emhash/" class="social-link"
+                       style="display:inline-block;background:#ffffff;border:1px solid #e5e7eb;
+                              border-radius:8px;padding:8px 12px;text-decoration:none;
+                              box-shadow:0 2px 6px rgba(0,0,0,0.04);">
+                      <table cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="padding-right:6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0077b5">
+                              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                          </td>
+                          <td>
+                            <span style="font-size:13px;font-weight:500;color:#1f2937;">LinkedIn</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td align="center" style="padding:20px 32px;background:#1f2937;">
+            <p style="margin:0 0 6px 0;font-size:15px;font-weight:600;color:#ffffff;">
+              Ready to bloom? 🌸
+            </p>
+            <p style="margin:0;font-size:13px;line-height:20px;color:#9ca3af;">
+              Questions? Just reply to this email – we're here to help!<br>
+              <strong style="color:#ffffff;">The Bloome Team</strong>
+            </p>
+          </td>
+        </tr>
+
+      </table><!-- /card -->
+
+    </td>
+  </tr>
+</table><!-- /wrapper -->
+
+</body>
+</html>

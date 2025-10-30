@@ -1,0 +1,10 @@
+{# one row = one bubble #}
+{% if msg.sender == request.user %}
+  <div class="d-flex justify-content-end px-3 py-1">
+    <div class="bg-primary text-white rounded-3 px-3 py-2 small">{{ msg.content }}</div>
+  </div>
+{% else %}
+  <div class="d-flex justify-content-start px-3 py-1">
+    <div class="bg-light border rounded-3 px-3 py-2 small">{{ msg.content }}</div>
+  </div>
+{% endif %}
